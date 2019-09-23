@@ -1,0 +1,22 @@
+upstream promort_server {
+  server ${DJANGO_SERVER}:8080 fail_timeout=0;
+}
+
+server {
+    listen 80;
+    server_name localhost;
+
+    return 301 https://${VIRTUAL_HOST}:443$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name localhost;
+
+    ssl_certificate /etc/nginx/certs/${VIRTUAL_HOST}.crt;
+    ssl_certificate_key /etc/nginx/certs/${VIRTUAL_HOST}.key;
+
+    client_max_body_size 4G;
+ 
+    include apps/promort.location;
+}

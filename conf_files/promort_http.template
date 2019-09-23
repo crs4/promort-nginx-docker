@@ -1,0 +1,12 @@
+upstream promort_server {
+  server ${DJANGO_SERVER}:8080 fail_timeout=0;
+}
+
+server {
+    listen 80;
+    server_name localhost;
+
+    client_max_body_size 4G;
+
+    include apps/promort.location;
+}
