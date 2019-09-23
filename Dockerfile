@@ -1,8 +1,7 @@
 # Builder (stage 0)
-# ARG PROMORT_VERSION=0.4.12
+ARG PROMORT_VERSION=0.4.14
 
-# FROM crs4/promort-web:${PROMORT_VERSION}
-FROM crs4/promort-web
+FROM crs4/promort-web:${PROMORT_VERSION}
 
 RUN python manage.py collectstatic --noinput
 
