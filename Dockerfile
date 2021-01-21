@@ -1,5 +1,5 @@
 # Builder (stage 0)
-ARG PROMORT_VERSION=0.6.0
+ARG PROMORT_VERSION=0.6.1
 
 FROM crs4/promort-web:${PROMORT_VERSION}
 
