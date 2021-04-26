@@ -6,7 +6,7 @@ FROM crs4/promort-web:${PROMORT_VERSION}
 RUN python manage.py collectstatic --noinput
 
 # Production
-FROM nginx:1.15.11
+FROM nginx:1.19.10
 LABEL maintainer="luca.lianas@crs4.it"
 
 COPY --from=0 /home/promort/app/ProMort/promort/static/ /opt/promort/nginx/static/
